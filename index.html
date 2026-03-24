@@ -317,14 +317,11 @@
 </head>
 <body>
 
-<!-- 视频背景 -->
+<!-- 视频背景: 使用用户提供的 mp4 链接 -->
 <div class="video-background">
     <video autoplay loop muted playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='100%25' height='100%25' fill='%231a1a2e'/%3E%3C/svg%3E">
-        <!-- 高质量抽象/城市夜景风格背景视频，保证加载与无声音循环 -->
-        <source src="https://cdn.pixabay.com/video/2023/08/09/175462-854918542_large.mp4" type="video/mp4">
-        <!-- 备选源2: 霓虹光影风格 -->
-        <source src="https://cdn.pixabay.com/video/2022/05/25/117338-712363335_large.mp4" type="video/mp4">
-        <!-- fallback 提示 -->
+        <source src="https://github.com/OFFpolice/E-app/raw/refs/heads/main/static/video/skylerlo.mp4" type="video/mp4">
+        <!-- 备选 fallback 保持视觉 -->
         Ваш браузер не поддерживает видеофон.
     </video>
 </div>
@@ -355,9 +352,9 @@
         <div class="vlog-domain">tangx.vip</div>
     </div>
     
-    <!-- 商务合作 TG群 (真实TG链接) -->
+    <!-- 商务合作 TG群 — 链接替换为用户提供的 Telegram -->
     <div class="tg-business">
-        <a href="https://t.me/bfq8888" target="_blank" rel="noopener noreferrer" class="tg-link">
+        <a href="https://t.me/Brick_Game_Bot/app" target="_blank" rel="noopener noreferrer" class="tg-link">
             <span class="tg-icon">📱</span> 商务合作 TG群
         </a>
     </div>
@@ -395,89 +392,71 @@
                 clockElement.innerText = timeString;
             }
         }
-        // 立即更新，并每分钟同步一次
         updateClock();
         setInterval(updateClock, 60000);
         
-        // 模拟下载提示（因为是精确复制网站样式，用户可根据需要替换真实下载链接）
-        // 按照原始截图意图，点击安卓/苹果版下载可触发提示，或者可改为真实地址
-        // 注：原站未提供具体apk/ipa链接，保持演示完整性，并提供占位提示
+        // 下载按钮点击事件（可自行替换真实链接，目前保持提示）
         const androidBtn = document.getElementById('androidDownload');
         const iosBtn = document.getElementById('iosDownload');
         
         if (androidBtn) {
             androidBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // 可替换为真实安卓下载地址，目前友好提示
-                alert('安卓版下载即将开放，请关注官方TG群获取最新安装包。\n或访问官网 tangx.vip');
+                alert('安卓版下载请通过 Telegram 获取最新安装包：\nhttps://t.me/Brick_Game_Bot/app');
             });
         }
         
         if (iosBtn) {
             iosBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('苹果版下载请前往 TestFlight 或 企业签名，详情请进商务合作TG群咨询。');
+                alert('苹果版下载请前往 TestFlight 或企业签名，详情请进商务合作 TG 群咨询。');
             });
         }
         
-        // 安装教程模拟：展示帮助信息（也可跳转帮助页）
+        // 安装教程：更新提示中的联系方式为新的 Telegram 链接
         const helpLink = document.getElementById('installGuide');
         if (helpLink) {
             helpLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('📲 安装教程：\n1. 若安卓安装失败请开启“允许未知来源”\n2. iOS用户请先信任企业证书：设置→通用→VPN与设备管理→信任\n3. 仍失败请联系 TG 群组管理 @bfq8888');
+                alert('📲 安装教程：\n1. 安卓用户若安装失败请开启“允许未知来源”\n2. iOS用户需信任企业证书：设置→通用→VPN与设备管理→信任\n3. 仍失败请联系 Telegram: https://t.me/Brick_Game_Bot/app');
             });
         }
         
-        // 可选: 增强用户体验，如果视频加载失败，更换背景颜色保证效果
-        const videoElements = document.querySelectorAll('.video-background video');
-        if (videoElements.length) {
-            const primaryVideo = videoElements[0];
-            // 如果视频播放失败，背景保留深色遮罩，不至于白屏
-            primaryVideo.addEventListener('error', () => {
-                console.log('视频加载备用资源或保持静态遮罩');
-                // 动态添加深色纯色背景以保证美观
-                const videoBg = document.querySelector('.video-background');
-                if (videoBg) {
-                    videoBg.style.backgroundColor = '#0a0a1a';
-                }
+        // 确保视频自动播放（静音自动播放策略）
+        const bgVideo = document.querySelector('.video-background video');
+        if (bgVideo) {
+            bgVideo.play().catch(err => {
+                console.warn('自动播放被阻止，用户交互后可尝试', err);
+                // 某些浏览器需要交互才播放，添加全局点击尝试
+                const enableVideo = () => {
+                    bgVideo.play().then(() => {
+                        document.removeEventListener('click', enableVideo);
+                        document.removeEventListener('touchstart', enableVideo);
+                    }).catch(e => console.log('still blocked'));
+                };
+                document.addEventListener('click', enableVideo, { once: true });
+                document.addEventListener('touchstart', enableVideo, { once: true });
             });
-            // 确保视频能够自动播放（现代浏览器大部分允许静音自动播放）
-            primaryVideo.play().catch(err => {
-                console.warn('自动播放被阻止，添加用户交互', err);
-                // 静默处理，但保留遮罩正常显示
+            // 如果视频源加载失败，给出备用背景色
+            bgVideo.addEventListener('error', () => {
+                console.log('视频加载失败，使用纯色背景');
+                const videoContainer = document.querySelector('.video-background');
+                if (videoContainer) videoContainer.style.backgroundColor = '#0a0a1a';
             });
         }
         
-        // 商务合作TG链接确保是新窗口打开，已通过target实现
-        // 额外小优化：复制原站中可能的“扫一扫”氛围，但不是重点，完全符合截图风格
-        // 附加动态涟漪效果（按钮hover加强）
-        const buttons = document.querySelectorAll('.btn-download, .tg-link, .install-help');
-        buttons.forEach(btn => {
+        // 微交互增强
+        const allButtons = document.querySelectorAll('.btn-download, .tg-link, .install-help');
+        allButtons.forEach(btn => {
             btn.addEventListener('touchstart', function() {
-                // 移动端反馈
                 this.style.opacity = '0.8';
             });
             btn.addEventListener('touchend', function() {
                 this.style.opacity = '1';
             });
         });
-        
-        // 微调: 使时间区域在每次加载时无延迟闪烁
-        const style = document.createElement('style');
-        style.textContent = `
-            .current-time {
-                transition: all 0.1s ease;
-            }
-            .btn-download, .tg-link, .install-help {
-                cursor: pointer;
-            }
-        `;
-        document.head.appendChild(style);
     })();
 </script>
-
-<!-- 注：本页面为完全复制目标站视觉及视频背景，所有交互按钮占位可替换真实下载链接，
-     视频背景基于pixabay免版视频，保证氛围一致；动态时间24h制，完全匹配截图中“23:13”风格 -->
 </body>
 </html>
+
