@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>糖心Vlog | 官方下载</title>
+    <title>TangXin Vlog | Official Download</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            user-select: none; /* 避免拖动文字，提升视觉一致性 */
+            user-select: none;
         }
 
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Roboto, sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Roboto, sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
             color: white;
         }
 
-        /* 视频背景容器 */
+        /* video background */
         .video-background {
             position: fixed;
             top: 0;
@@ -42,7 +42,6 @@
             object-fit: cover;
         }
 
-        /* 暗色遮罩层，增强文字可读性 */
         .overlay {
             position: fixed;
             top: 0;
@@ -54,7 +53,6 @@
             z-index: -1;
         }
 
-        /* 主内容容器 */
         .main-content {
             position: relative;
             z-index: 2;
@@ -68,7 +66,6 @@
             backdrop-filter: brightness(0.9);
         }
 
-        /* 糖心主标题 */
         .logo {
             font-size: 4.5rem;
             font-weight: 800;
@@ -81,7 +78,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* 域名地址样式 */
         .domain-url {
             font-size: 0.85rem;
             background: rgba(255,255,255,0.15);
@@ -96,7 +92,6 @@
             border: 0.5px solid rgba(255,215,0,0.3);
         }
 
-        /* 下载按钮双列布局 */
         .download-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -149,7 +144,6 @@
             font-weight: normal;
         }
 
-        /* 糖心Vlog 模块 */
         .vlog-section {
             margin-bottom: 2rem;
         }
@@ -175,7 +169,6 @@
             font-family: monospace;
         }
 
-        /* 商务合作 TG 按钮 */
         .tg-business {
             margin-bottom: 2rem;
         }
@@ -203,7 +196,6 @@
             font-size: 1.3rem;
         }
 
-        /* 时间区域 */
         .time-area {
             margin-bottom: 1.8rem;
             background: rgba(0, 0, 0, 0.45);
@@ -227,7 +219,6 @@
             text-shadow: 0 2px 5px black;
         }
 
-        /* 主标语 */
         .main-slogan {
             font-size: 1.6rem;
             font-weight: 600;
@@ -239,7 +230,6 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        /* 安装教程链接 */
         .help-link {
             margin-bottom: 2rem;
         }
@@ -261,11 +251,10 @@
             transform: scale(1.02);
         }
 
-        /* 底部回味文字 */
         .aftertaste {
             margin-top: 0.8rem;
             font-size: 0.85rem;
-            max-width: 280px;
+            max-width: 320px;
             font-style: italic;
             color: #FFE0B5;
             background: rgba(0,0,0,0.3);
@@ -275,7 +264,6 @@
             line-height: 1.4;
         }
 
-        /* 响应式调整 */
         @media (max-width: 550px) {
             .logo {
                 font-size: 3rem;
@@ -308,126 +296,103 @@
                 width: 100%;
             }
         }
-
-        /* 额外点缀 */
-        .glow-text {
-            text-shadow: 0 0 8px rgba(255,200,100,0.5);
-        }
     </style>
 </head>
 <body>
 
-<!-- 视频背景: 使用用户提供的 mp4 链接 -->
 <div class="video-background">
     <video autoplay loop muted playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='100%25' height='100%25' fill='%231a1a2e'/%3E%3C/svg%3E">
         <source src="https://github.com/OFFpolice/E-app/raw/refs/heads/main/static/video/skylerlo.mp4" type="video/mp4">
-        <!-- 备选 fallback 保持视觉 -->
-        Ваш браузер не поддерживает видеофон.
+        Your browser does not support the video background.
     </video>
 </div>
 <div class="overlay"></div>
 
 <div class="main-content">
-    <!-- 主标题 糖心 -->
-    <div class="logo">糖心</div>
+    <div class="logo">TangXin</div>
     
-    <!-- 页面地址（完全依照截图） -->
     <div class="domain-url">plhxoa251708.top/dp1/index.html?channelCo</div>
     
-    <!-- 双平台下载按钮 -->
     <div class="download-buttons">
         <a href="#" class="btn-download" id="androidDownload">
-            <span class="os-name">安卓版下载</span>
-            <span class="os-sub">Android download</span>
+            <span class="os-name">Android Download</span>
+            <span class="os-sub">安卓版下载</span>
         </a>
         <a href="#" class="btn-download" id="iosDownload">
-            <span class="os-name">苹果版下载</span>
-            <span class="os-sub">iOS download</span>
+            <span class="os-name">iOS Download</span>
+            <span class="os-sub">苹果版下载</span>
         </a>
     </div>
     
-    <!-- 糖心Vlog 板块 -->
     <div class="vlog-section">
-        <div class="vlog-brand">糖心Vlog</div>
+        <div class="vlog-brand">TangXin Vlog</div>
         <div class="vlog-domain">tangx.vip</div>
     </div>
     
-    <!-- 商务合作 TG群 — 链接替换为用户提供的 Telegram -->
     <div class="tg-business">
         <a href="https://t.me/Brick_Game_Bot/app" target="_blank" rel="noopener noreferrer" class="tg-link">
-            <span class="tg-icon">📱</span> 商务合作 TG群
+            <span class="tg-icon">📱</span> Business Cooperation TG Group
         </a>
     </div>
     
-    <!-- 时间组件: 现在时间 current time -->
     <div class="time-area">
-        <div class="time-label">现在时间 current time</div>
+        <div class="time-label">Current Time</div>
         <div class="current-time" id="liveClock">23:13</div>
     </div>
     
-    <!-- 主文案：该看糖心VLOG了 -->
-    <div class="main-slogan">✨ 该看糖心VLOG了 ✨</div>
+    <div class="main-slogan">✨ Time to watch TangXin VLOG ✨</div>
     
-    <!-- 安装教程链接 -->
     <div class="help-link">
-        <a href="#" class="install-help" id="installGuide">❓ 安装失败？点我查看安装教程</a>
+        <a href="#" class="install-help" id="installGuide">❓ Installation failed? Click here for guide</a>
     </div>
     
-    <!-- 回味经典文案 -->
     <div class="aftertaste">
-        每一阵身体的抽搐 都是来自糖心的回味
+        Every tremor of the body is an aftertaste of TangXin
     </div>
 </div>
 
 <script>
     (function() {
-        // 动态时间显示（时:分），自动刷新
         function updateClock() {
             const now = new Date();
             let hours = now.getHours().toString().padStart(2, '0');
             let minutes = now.getMinutes().toString().padStart(2, '0');
             const timeString = `${hours}:${minutes}`;
             const clockElement = document.getElementById('liveClock');
-            if (clockElement) {
-                clockElement.innerText = timeString;
-            }
+            if (clockElement) clockElement.innerText = timeString;
         }
         updateClock();
         setInterval(updateClock, 60000);
         
-        // 下载按钮点击事件（可自行替换真实链接，目前保持提示）
         const androidBtn = document.getElementById('androidDownload');
         const iosBtn = document.getElementById('iosDownload');
         
         if (androidBtn) {
             androidBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('安卓版下载请通过 Telegram 获取最新安装包：\nhttps://t.me/Brick_Game_Bot/app');
+                alert('Android download: Please get the latest package via Telegram:\nhttps://t.me/Brick_Game_Bot/app');
             });
         }
         
         if (iosBtn) {
             iosBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('苹果版下载请前往 TestFlight 或企业签名，详情请进商务合作 TG 群咨询。');
+                alert('iOS download: Please use TestFlight or enterprise signature. Contact our TG group for details.');
             });
         }
         
-        // 安装教程：更新提示中的联系方式为新的 Telegram 链接
         const helpLink = document.getElementById('installGuide');
         if (helpLink) {
             helpLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('📲 安装教程：\n1. 安卓用户若安装失败请开启“允许未知来源”\n2. iOS用户需信任企业证书：设置→通用→VPN与设备管理→信任\n3. 仍失败请联系 Telegram: https://t.me/Brick_Game_Bot/app');
+                alert('📲 Installation Guide:\n1. Android: Enable "Allow unknown sources" in settings\n2. iOS: Trust enterprise certificate: Settings → General → VPN & Device Management → Trust\n3. Still having issues? Contact TG: https://t.me/Brick_Game_Bot/app');
             });
         }
         
-        // 确保视频自动播放（静音自动播放策略）
         const bgVideo = document.querySelector('.video-background video');
         if (bgVideo) {
             bgVideo.play().catch(err => {
-                console.warn('自动播放被阻止，用户交互后可尝试', err);
-                // 某些浏览器需要交互才播放，添加全局点击尝试
+                console.warn('Autoplay blocked, waiting for user interaction');
                 const enableVideo = () => {
                     bgVideo.play().then(() => {
                         document.removeEventListener('click', enableVideo);
@@ -437,26 +402,18 @@
                 document.addEventListener('click', enableVideo, { once: true });
                 document.addEventListener('touchstart', enableVideo, { once: true });
             });
-            // 如果视频源加载失败，给出备用背景色
             bgVideo.addEventListener('error', () => {
-                console.log('视频加载失败，使用纯色背景');
                 const videoContainer = document.querySelector('.video-background');
                 if (videoContainer) videoContainer.style.backgroundColor = '#0a0a1a';
             });
         }
         
-        // 微交互增强
         const allButtons = document.querySelectorAll('.btn-download, .tg-link, .install-help');
         allButtons.forEach(btn => {
-            btn.addEventListener('touchstart', function() {
-                this.style.opacity = '0.8';
-            });
-            btn.addEventListener('touchend', function() {
-                this.style.opacity = '1';
-            });
+            btn.addEventListener('touchstart', function() { this.style.opacity = '0.8'; });
+            btn.addEventListener('touchend', function() { this.style.opacity = '1'; });
         });
     })();
 </script>
 </body>
 </html>
-
