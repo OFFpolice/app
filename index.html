@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>糖心Vlog | 官方下载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* 避免拖动文字，提升视觉一致性 */
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Roboto, sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* 视频背景容器 */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* 暗色遮罩层，增强文字可读性 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(2px);
+            z-index: -1;
+        }
+
+        /* 主内容容器 */
+        .main-content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            backdrop-filter: brightness(0.9);
+        }
+
+        /* 糖心主标题 */
+        .logo {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: 6px;
+            text-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #FFF, #FFD166);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 域名地址样式 */
+        .domain-url {
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 2rem;
+            color: #FFE5B4;
+            letter-spacing: 1px;
+            font-family: monospace;
+            border: 0.5px solid rgba(255,215,0,0.3);
+        }
+
+        /* 下载按钮双列布局 */
+        .download-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .btn-download {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(20, 20, 30, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 60px;
+            padding: 0.9rem 0.5rem;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 0, 0, 0.8);
+            border-color: #FFD966;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+        }
+
+        .btn-download:active {
+            transform: scale(0.97);
+        }
+
+        .btn-download .os-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .btn-download .os-sub {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-weight: normal;
+        }
+
+        /* 糖心Vlog 模块 */
+        .vlog-section {
+            margin-bottom: 2rem;
+        }
+        .vlog-brand {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            background: linear-gradient(120deg, #FFD966, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .vlog-domain {
+            font-size: 1rem;
+            margin-top: 5px;
+            color: #FFE3A4;
+            word-break: break-all;
+            background: rgba(0,0,0,0.4);
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-family: monospace;
+        }
+
+        /* 商务合作 TG 按钮 */
+        .tg-business {
+            margin-bottom: 2rem;
+        }
+        .tg-link {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            border: 1px solid rgba(255,215,0,0.4);
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .tg-link:hover {
+            background: #1f1f2e;
+            border-color: #ffd966;
+            transform: scale(1.02);
+        }
+        .tg-icon {
+            font-size: 1.3rem;
+        }
+
+        /* 时间区域 */
+        .time-area {
+            margin-bottom: 1.8rem;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 48px;
+            display: inline-block;
+        }
+        .time-label {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        .current-time {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: monospace;
+            letter-spacing: 4px;
+            margin-top: 5px;
+            color: #FFE69A;
+            text-shadow: 0 2px 5px black;
+        }
+
+        /* 主标语 */
+        .main-slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #FFE0A3, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* 安装教程链接 */
+        .help-link {
+            margin-bottom: 2rem;
+        }
+        .install-help {
+            background: rgba(30,30,45,0.7);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #FFD966;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            display: inline-block;
+            backdrop-filter: blur(4px);
+            border: 0.5px solid rgba(255,200,100,0.5);
+        }
+        .install-help:hover {
+            background: rgba(0,0,0,0.7);
+            color: #FFE5A3;
+            transform: scale(1.02);
+        }
+
+        /* 底部回味文字 */
+        .aftertaste {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            max-width: 280px;
+            font-style: italic;
+            color: #FFE0B5;
+            background: rgba(0,0,0,0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+            line-height: 1.4;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 550px) {
+            .logo {
+                font-size: 3rem;
+            }
+            .btn-download {
+                min-width: 160px;
+                padding: 0.7rem 0.3rem;
+            }
+            .btn-download .os-name {
+                font-size: 1.1rem;
+            }
+            .current-time {
+                font-size: 1.8rem;
+            }
+            .main-slogan {
+                font-size: 1.2rem;
+            }
+            .vlog-brand {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .download-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                width: 90%;
+            }
+            .btn-download {
+                width: 100%;
+            }
+        }
+
+        /* 额外点缀 */
+        .glow-text {
+            text-shadow: 0 0 8px rgba(255,200,100,0.5);
+        }
+    </style>
+</head>
+<body>
+
+<!-- 视频背景 -->
+<div class="video-background">
+    <video autoplay loop muted playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='100%25' height='100%25' fill='%231a1a2e'/%3E%3C/svg%3E">
+        <!-- 高质量抽象/城市夜景风格背景视频，保证加载与无声音循环 -->
+        <source src="https://cdn.pixabay.com/video/2023/08/09/175462-854918542_large.mp4" type="video/mp4">
+        <!-- 备选源2: 霓虹光影风格 -->
+        <source src="https://cdn.pixabay.com/video/2022/05/25/117338-712363335_large.mp4" type="video/mp4">
+        <!-- fallback 提示 -->
+        Ваш браузер не поддерживает видеофон.
+    </video>
+</div>
+<div class="overlay"></div>
+
+<div class="main-content">
+    <!-- 主标题 糖心 -->
+    <div class="logo">糖心</div>
+    
+    <!-- 页面地址（完全依照截图） -->
+    <div class="domain-url">plhxoa251708.top/dp1/index.html?channelCo</div>
+    
+    <!-- 双平台下载按钮 -->
+    <div class="download-buttons">
+        <a href="#" class="btn-download" id="androidDownload">
+            <span class="os-name">安卓版下载</span>
+            <span class="os-sub">Android download</span>
+        </a>
+        <a href="#" class="btn-download" id="iosDownload">
+            <span class="os-name">苹果版下载</span>
+            <span class="os-sub">iOS download</span>
+        </a>
+    </div>
+    
+    <!-- 糖心Vlog 板块 -->
+    <div class="vlog-section">
+        <div class="vlog-brand">糖心Vlog</div>
+        <div class="vlog-domain">tangx.vip</div>
+    </div>
+    
+    <!-- 商务合作 TG群 (真实TG链接) -->
+    <div class="tg-business">
+        <a href="https://t.me/bfq8888" target="_blank" rel="noopener noreferrer" class="tg-link">
+            <span class="tg-icon">📱</span> 商务合作 TG群
+        </a>
+    </div>
+    
+    <!-- 时间组件: 现在时间 current time -->
+    <div class="time-area">
+        <div class="time-label">现在时间 current time</div>
+        <div class="current-time" id="liveClock">23:13</div>
+    </div>
+    
+    <!-- 主文案：该看糖心VLOG了 -->
+    <div class="main-slogan">✨ 该看糖心VLOG了 ✨</div>
+    
+    <!-- 安装教程链接 -->
+    <div class="help-link">
+        <a href="#" class="install-help" id="installGuide">❓ 安装失败？点我查看安装教程</a>
+    </div>
+    
+    <!-- 回味经典文案 -->
+    <div class="aftertaste">
+        每一阵身体的抽搐 都是来自糖心的回味
+    </div>
+</div>
+
+<script>
+    (function() {
+        // 动态时间显示（时:分），自动刷新
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
+            const clockElement = document.getElementById('liveClock');
+            if (clockElement) {
+                clockElement.innerText = timeString;
+            }
+        }
+        // 立即更新，并每分钟同步一次
+        updateClock();
+        setInterval(updateClock, 60000);
+        
+        // 模拟下载提示（因为是精确复制网站样式，用户可根据需要替换真实下载链接）
+        // 按照原始截图意图，点击安卓/苹果版下载可触发提示，或者可改为真实地址
+        // 注：原站未提供具体apk/ipa链接，保持演示完整性，并提供占位提示
+        const androidBtn = document.getElementById('androidDownload');
+        const iosBtn = document.getElementById('iosDownload');
+        
+        if (androidBtn) {
+            androidBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // 可替换为真实安卓下载地址，目前友好提示
+                alert('安卓版下载即将开放，请关注官方TG群获取最新安装包。\n或访问官网 tangx.vip');
+            });
+        }
+        
+        if (iosBtn) {
+            iosBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('苹果版下载请前往 TestFlight 或 企业签名，详情请进商务合作TG群咨询。');
+            });
+        }
+        
+        // 安装教程模拟：展示帮助信息（也可跳转帮助页）
+        const helpLink = document.getElementById('installGuide');
+        if (helpLink) {
+            helpLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('📲 安装教程：\n1. 若安卓安装失败请开启“允许未知来源”\n2. iOS用户请先信任企业证书：设置→通用→VPN与设备管理→信任\n3. 仍失败请联系 TG 群组管理 @bfq8888');
+            });
+        }
+        
+        // 可选: 增强用户体验，如果视频加载失败，更换背景颜色保证效果
+        const videoElements = document.querySelectorAll('.video-background video');
+        if (videoElements.length) {
+            const primaryVideo = videoElements[0];
+            // 如果视频播放失败，背景保留深色遮罩，不至于白屏
+            primaryVideo.addEventListener('error', () => {
+                console.log('视频加载备用资源或保持静态遮罩');
+                // 动态添加深色纯色背景以保证美观
+                const videoBg = document.querySelector('.video-background');
+                if (videoBg) {
+                    videoBg.style.backgroundColor = '#0a0a1a';
+                }
+            });
+            // 确保视频能够自动播放（现代浏览器大部分允许静音自动播放）
+            primaryVideo.play().catch(err => {
+                console.warn('自动播放被阻止，添加用户交互', err);
+                // 静默处理，但保留遮罩正常显示
+            });
+        }
+        
+        // 商务合作TG链接确保是新窗口打开，已通过target实现
+        // 额外小优化：复制原站中可能的“扫一扫”氛围，但不是重点，完全符合截图风格
+        // 附加动态涟漪效果（按钮hover加强）
+        const buttons = document.querySelectorAll('.btn-download, .tg-link, .install-help');
+        buttons.forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                // 移动端反馈
+                this.style.opacity = '0.8';
+            });
+            btn.addEventListener('touchend', function() {
+                this.style.opacity = '1';
+            });
+        });
+        
+        // 微调: 使时间区域在每次加载时无延迟闪烁
+        const style = document.createElement('style');
+        style.textContent = `
+            .current-time {
+                transition: all 0.1s ease;
+            }
+            .btn-download, .tg-link, .install-help {
+                cursor: pointer;
+            }
+        `;
+        document.head.appendChild(style);
+    })();
+</script>
+
+<!-- 注：本页面为完全复制目标站视觉及视频背景，所有交互按钮占位可替换真实下载链接，
+     视频背景基于pixabay免版视频，保证氛围一致；动态时间24h制，完全匹配截图中“23:13”风格 -->
+</body>
+</html>
