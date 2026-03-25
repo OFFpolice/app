@@ -279,38 +279,5 @@
     }
 })();
 </script>
-
-  <!--<script>
-    (function() {
-      const clockElement = document.getElementById("liveClock");
-
-      function updateClock() {
-        if (!clockElement) return;
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, "0");
-        const minutes = now.getMinutes().toString().padStart(2, "0");
-        clockElement.innerText = `${hours}:${minutes}`;
-      }
-
-      updateClock();
-      setInterval(updateClock, 60000);
-
-      const bgVideo = document.querySelector(".video-container video");
-      if (bgVideo) {
-        const playPromise = bgVideo.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            const tryPlayOnce = () => {
-              bgVideo.play().catch(() => {});
-              document.removeEventListener("click", tryPlayOnce);
-              document.removeEventListener("touchstart", tryPlayOnce);
-            };
-            document.addEventListener("click", tryPlayOnce, { once: true });
-            document.addEventListener("touchstart", tryPlayOnce, { once: true });
-          });
-        }
-      }
-    })();
-  </script>-->
 </body>
 </html>
