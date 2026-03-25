@@ -22,7 +22,7 @@
             background: #0b0b12;
         }
 
-        .bg-video-container {
+        .video-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,7 +32,7 @@
             overflow: hidden;
         }
 
-        .bg-video-container video {
+        .video-container video {
             min-width: 100%;
             min-height: 100%;
             width: auto;
@@ -44,7 +44,7 @@
             object-fit: cover;
         }
 
-        .page-content {
+        .content {
             position: relative;
             z-index: 2;
             min-height: 100vh;
@@ -56,7 +56,7 @@
             text-align: center;
         }
 
-        .brand-logo {
+        .logo {
             font-size: 4rem;
             font-weight: 800;
             letter-spacing: 4px;
@@ -68,7 +68,7 @@
             margin-bottom: 0.25rem;
         }
 
-        .brand-tagline {
+        .tagline {
             font-size: 0.9rem;
             opacity: 0.92;
             margin-bottom: 2rem;
@@ -80,7 +80,7 @@
             font-weight: 500;
         }
 
-        .telegram-links-list {
+        .links-list {
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
@@ -89,7 +89,7 @@
             margin-bottom: 2.5rem;
         }
 
-        .telegram-link-button {
+        .link-button {
             background: rgba(15, 15, 22, 0.85);
             border: 1px solid rgba(255, 210, 90, 0.65);
             border-radius: 60px;
@@ -107,11 +107,11 @@
             cursor: pointer;
         }
 
-        .telegram-link-button:active {
+        .link-button:active {
             opacity: 0.8;
         }
 
-        .telegram-link-button i {
+        .link-button i {
             font-size: 1.55rem;
             width: 1.8rem;
             text-align: center;
@@ -145,7 +145,7 @@
             line-height: 1.2;
         }
 
-        .featured-slogan {
+        .slogan {
             font-size: 1.45rem;
             font-weight: 600;
             margin-bottom: 1.2rem;
@@ -156,7 +156,7 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-        .footer-note {
+        .footer {
             margin-top: 0.8rem;
             font-size: 0.85rem;
             max-width: 300px;
@@ -170,11 +170,11 @@
         }
 
         @media (max-width: 550px) {
-            .page-content {
+            .content {
                 padding: 1.6rem 1.2rem;
                 justify-content: center;
             }
-            .brand-logo {
+            .logo {
                 font-size: 3rem;
                 letter-spacing: 3px;
             }
@@ -182,48 +182,48 @@
                 font-size: 1.9rem;
                 letter-spacing: 2px;
             }
-            .featured-slogan {
+            .slogan {
                 font-size: 1.2rem;
             }
-            .telegram-link-button {
+            .link-button {
                 font-size: 1rem;
                 padding: 0.85rem 1rem;
                 gap: 12px;
             }
-            .telegram-link-button i {
+            .link-button i {
                 font-size: 1.4rem;
             }
-            .brand-tagline {
+            .tagline {
                 font-size: 0.8rem;
             }
-            .footer-note {
+            .footer {
                 font-size: 0.75rem;
                 max-width: 280px;
             }
         }
 
         @media (max-width: 380px) {
-            .telegram-link-button {
+            .link-button {
                 font-size: 0.9rem;
                 padding: 0.75rem 0.9rem;
             }
-            .telegram-link-button i {
+            .link-button i {
                 font-size: 1.3rem;
             }
             .time-digits {
                 font-size: 1.7rem;
             }
-            .brand-logo {
+            .logo {
                 font-size: 2.6rem;
             }
         }
 
         @media (max-height: 500px) and (orientation: landscape) {
-            .page-content {
+            .content {
                 padding: 1rem 1.5rem;
                 justify-content: flex-start;
             }
-            .telegram-links-list {
+            .links-list {
                 gap: 0.8rem;
                 margin-bottom: 1rem;
             }
@@ -234,20 +234,20 @@
             .time-digits {
                 font-size: 1.5rem;
             }
-            .featured-slogan {
+            .slogan {
                 margin-bottom: 0.5rem;
                 font-size: 1rem;
             }
-            .brand-logo {
+            .logo {
                 font-size: 2.2rem;
                 margin-bottom: 0;
             }
         }
 
-        a, button, div, .telegram-link-button {
+        a, button, div, .link-button {
             transition: none;
         }
-        .telegram-link-button:hover {
+        .link-button:hover {
             transform: none;
             background: rgba(15, 15, 22, 0.85);
             border-color: rgba(255, 210, 90, 0.65);
@@ -257,31 +257,31 @@
 </head>
 <body>
 
-<div class="bg-video-container">
+<div class="video-container">
     <video autoplay loop muted playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='100%25' height='100%25' fill='%2312121c'/%3E%3C/svg%3E">
         <source src="https://videotourl.com/videos/1774408888308-289df404-1679-4bd5-b8ca-c802e53cab99.mp4" type="video/mp4">
         Your browser does not support video backgrounds.
     </video>
 </div>
 
-<main class="page-content">
-    <div class="brand-logo">Welcome</div>
-    <div class="brand-tagline">Welcome Telegram Family</div>
+<main class="content">
+    <div class="logo">Welcome</div>
+    <div class="tagline">Welcome Telegram Family</div>
 
-    <div class="telegram-links-list">
-        <a href="https://t.me/TikTokMediaSaveBot/app" target="_blank" rel="noopener noreferrer" class="telegram-link-button">
+    <div class="links-list">
+        <a href="https://t.me/TikTokMediaSaveBot/app" target="_blank" rel="noopener noreferrer" class="link-button">
             <i class="fab fa-tiktok"></i>
             <span>TikTok Media Save</span>
         </a>
-        <a href="https://t.me/EpornerSearchBot/app" target="_blank" rel="noopener noreferrer" class="telegram-link-button">
+        <a href="https://t.me/EpornerSearchBot/app" target="_blank" rel="noopener noreferrer" class="link-button">
             <i class="fas fa-eye"></i>
             <span>EPORNER Search</span>
         </a>
-        <a href="https://t.me/Sound_search_bot" target="_blank" rel="noopener noreferrer" class="telegram-link-button">
+        <a href="https://t.me/Sound_search_bot" target="_blank" rel="noopener noreferrer" class="link-button">
             <i class="fas fa-headphones"></i>
             <span>Sound Search</span>
         </a>
-        <a href="https://t.me/jisou?start=a_1741564693" target="_blank" rel="noopener noreferrer" class="telegram-link-button">
+        <a href="https://t.me/jisou?start=a_1741564693" target="_blank" rel="noopener noreferrer" class="link-button">
             <i class="fas fa-search"></i>
             <span>JISOU</span>
         </a>
@@ -292,9 +292,9 @@
         <div class="time-digits" id="liveClock">--:--</div>
     </div>
 
-    <div class="featured-slogan">✨ Time to watch Telegram ✨</div>
+    <div class="slogan">✨ Time to watch Telegram ✨</div>
 
-    <div class="footer-note">
+    <div class="footer">
         Every tremor of the body is an aftertaste of Telegram
     </div>
 </main>
@@ -312,7 +312,7 @@
         updateClock();
         setInterval(updateClock, 60000);
 
-        const bgVideo = document.querySelector('.bg-video-container video');
+        const bgVideo = document.querySelector('.video-container video');
         if (bgVideo) {
             bgVideo.play().catch(() => {
                 const tryPlayOnce = () => {
