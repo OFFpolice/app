@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>TangXin Vlog | Official Download</title>
+    <title>TangXin | Links</title>
     <style>
         * {
             margin: 0;
@@ -48,8 +48,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(2px);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
             z-index: -1;
         }
 
@@ -63,139 +63,75 @@
             justify-content: center;
             padding: 2rem 1.5rem;
             text-align: center;
-            backdrop-filter: brightness(0.9);
         }
 
         .logo {
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 800;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             text-shadow: 0 8px 20px rgba(0,0,0,0.4);
             background: linear-gradient(135deg, #FFF, #FFD166);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
-        .domain-url {
-            font-size: 0.85rem;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(4px);
-            display: inline-block;
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.4);
             padding: 0.3rem 1rem;
             border-radius: 40px;
-            margin-bottom: 2rem;
-            color: #FFE5B4;
-            letter-spacing: 1px;
-            font-family: monospace;
-            border: 0.5px solid rgba(255,215,0,0.3);
+            display: inline-block;
         }
 
-        .download-buttons {
+        /* Telegram links grid */
+        .links-grid {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            flex-direction: column;
+            gap: 1.2rem;
             width: 100%;
-            max-width: 600px;
+            max-width: 400px;
+            margin-bottom: 2.5rem;
         }
 
-        .btn-download {
-            flex: 1;
-            min-width: 200px;
-            background: rgba(20, 20, 30, 0.75);
+        .tg-button {
+            background: rgba(20, 20, 30, 0.8);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 215, 0, 0.5);
             border-radius: 60px;
-            padding: 0.9rem 0.5rem;
+            padding: 1rem 1.2rem;
             transition: all 0.25s ease;
             text-decoration: none;
             color: white;
             font-weight: 600;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            gap: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            font-size: 1.1rem;
         }
 
-        .btn-download:hover {
+        .tg-button:hover {
             transform: translateY(-3px);
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             border-color: #FFD966;
             box-shadow: 0 15px 25px rgba(0,0,0,0.4);
         }
 
-        .btn-download:active {
+        .tg-button:active {
             transform: scale(0.97);
         }
 
-        .btn-download .os-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .btn-download .os-sub {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            font-weight: normal;
-        }
-
-        .vlog-section {
-            margin-bottom: 2rem;
-        }
-        .vlog-brand {
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            background: linear-gradient(120deg, #FFD966, #FFB347);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .vlog-domain {
-            font-size: 1rem;
-            margin-top: 5px;
-            color: #FFE3A4;
-            word-break: break-all;
-            background: rgba(0,0,0,0.4);
-            display: inline-block;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            font-family: monospace;
-        }
-
-        .tg-business {
-            margin-bottom: 2rem;
-        }
-        .tg-link {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-            border: 1px solid rgba(255,215,0,0.4);
-            transition: 0.2s;
-            font-size: 1rem;
-        }
-        .tg-link:hover {
-            background: #1f1f2e;
-            border-color: #ffd966;
-            transform: scale(1.02);
-        }
         .tg-icon {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
 
+        /* time area */
         .time-area {
             margin-bottom: 1.8rem;
             background: rgba(0, 0, 0, 0.45);
@@ -220,14 +156,13 @@
         }
 
         .main-slogan {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(135deg, #FFE0A3, #FFB347);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .help-link {
@@ -252,7 +187,7 @@
         }
 
         .aftertaste {
-            margin-top: 0.8rem;
+            margin-top: 0.5rem;
             font-size: 0.85rem;
             max-width: 320px;
             font-style: italic;
@@ -268,32 +203,15 @@
             .logo {
                 font-size: 3rem;
             }
-            .btn-download {
-                min-width: 160px;
-                padding: 0.7rem 0.3rem;
-            }
-            .btn-download .os-name {
-                font-size: 1.1rem;
-            }
             .current-time {
                 font-size: 1.8rem;
             }
             .main-slogan {
                 font-size: 1.2rem;
             }
-            .vlog-brand {
-                font-size: 1.4rem;
-            }
-        }
-
-        @media (max-width: 450px) {
-            .download-buttons {
-                flex-direction: column;
-                gap: 1rem;
-                width: 90%;
-            }
-            .btn-download {
-                width: 100%;
+            .tg-button {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
             }
         }
     </style>
@@ -302,50 +220,43 @@
 
 <div class="video-background">
     <video autoplay loop muted playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='100%25' height='100%25' fill='%231a1a2e'/%3E%3C/svg%3E">
-        <source src="https://videotourl.com/videos/1774406085188-b7546202-76a8-4995-92af-5cb3b067dd05.mp4" type="video/mp4">
-        Your browser does not support the video background.
+        <source src="https://github.com/OFFpolice/E-app/raw/refs/heads/main/static/video/skylerlo.mp4" type="video/mp4">
+        Your browser does not support video background.
     </video>
 </div>
 <div class="overlay"></div>
 
 <div class="main-content">
     <div class="logo">TangXin</div>
+    <div class="tagline">plhxoa251708.top/dp1/index.html?channelCo</div>
     
-    <div class="domain-url">plhxoa251708.top/dp1/index.html?channelCo</div>
-    
-    <div class="download-buttons">
-        <a href="#" class="btn-download" id="androidDownload">
-            <span class="os-name">Android Download</span>
-            <span class="os-sub">安卓版下载</span>
+    <!-- only these 4 telegram links -->
+    <div class="links-grid">
+        <a href="https://t.me/TikTokMediaSaveBot/app" target="_blank" rel="noopener noreferrer" class="tg-button">
+            <span class="tg-icon">🎵</span> TikTok Media Save
         </a>
-        <a href="#" class="btn-download" id="iosDownload">
-            <span class="os-name">iOS Download</span>
-            <span class="os-sub">苹果版下载</span>
+        <a href="https://t.me/EpornerSearchBot/app" target="_blank" rel="noopener noreferrer" class="tg-button">
+            <span class="tg-icon">🔞</span> EPORNER Search
         </a>
-    </div>
-    
-    <div class="vlog-section">
-        <div class="vlog-brand">TangXin Vlog</div>
-        <div class="vlog-domain">tangx.vip</div>
-    </div>
-    
-    <div class="tg-business">
-        <a href="https://t.me/Brick_Game_Bot/app" target="_blank" rel="noopener noreferrer" class="tg-link">
-            <span class="tg-icon">📱</span> Business Cooperation TG Group
+        <a href="https://t.me/Sound_search_bot" target="_blank" rel="noopener noreferrer" class="tg-button">
+            <span class="tg-icon">🎧</span> Sound Search Bot
+        </a>
+        <a href="https://t.me/jisou?start=a_1741564693" target="_blank" rel="noopener noreferrer" class="tg-button">
+            <span class="tg-icon">🔍</span> JISOU 极搜
         </a>
     </div>
-    
+
     <div class="time-area">
         <div class="time-label">Current Time</div>
-        <div class="current-time" id="liveClock">23:13</div>
+        <div class="current-time" id="liveClock">--:--</div>
     </div>
-    
+
     <div class="main-slogan">✨ Time to watch TangXin VLOG ✨</div>
-    
+
     <div class="help-link">
         <a href="#" class="install-help" id="installGuide">❓ Installation failed? Click here for guide</a>
     </div>
-    
+
     <div class="aftertaste">
         Every tremor of the body is an aftertaste of TangXin
     </div>
@@ -357,62 +268,32 @@
             const now = new Date();
             let hours = now.getHours().toString().padStart(2, '0');
             let minutes = now.getMinutes().toString().padStart(2, '0');
-            const timeString = `${hours}:${minutes}`;
-            const clockElement = document.getElementById('liveClock');
-            if (clockElement) clockElement.innerText = timeString;
+            document.getElementById('liveClock').innerText = `${hours}:${minutes}`;
         }
         updateClock();
         setInterval(updateClock, 60000);
-        
-        const androidBtn = document.getElementById('androidDownload');
-        const iosBtn = document.getElementById('iosDownload');
-        
-        if (androidBtn) {
-            androidBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('Android download: Please get the latest package via Telegram:\nhttps://t.me/Brick_Game_Bot/app');
-            });
-        }
-        
-        if (iosBtn) {
-            iosBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('iOS download: Please use TestFlight or enterprise signature. Contact our TG group for details.');
-            });
-        }
         
         const helpLink = document.getElementById('installGuide');
         if (helpLink) {
             helpLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('📲 Installation Guide:\n1. Android: Enable "Allow unknown sources" in settings\n2. iOS: Trust enterprise certificate: Settings → General → VPN & Device Management → Trust\n3. Still having issues? Contact TG: https://t.me/Brick_Game_Bot/app');
+                alert('📲 Installation Guide:\n1. Android: Enable "Unknown sources" in settings\n2. iOS: Trust enterprise certificate: Settings → General → VPN & Device Management → Trust\n3. Still issues? Contact any of the bots above.');
             });
         }
         
         const bgVideo = document.querySelector('.video-background video');
         if (bgVideo) {
-            bgVideo.play().catch(err => {
-                console.warn('Autoplay blocked, waiting for user interaction');
-                const enableVideo = () => {
+            bgVideo.play().catch(() => {
+                const tryPlay = () => {
                     bgVideo.play().then(() => {
-                        document.removeEventListener('click', enableVideo);
-                        document.removeEventListener('touchstart', enableVideo);
-                    }).catch(e => console.log('still blocked'));
+                        document.removeEventListener('click', tryPlay);
+                        document.removeEventListener('touchstart', tryPlay);
+                    }).catch(() => {});
                 };
-                document.addEventListener('click', enableVideo, { once: true });
-                document.addEventListener('touchstart', enableVideo, { once: true });
-            });
-            bgVideo.addEventListener('error', () => {
-                const videoContainer = document.querySelector('.video-background');
-                if (videoContainer) videoContainer.style.backgroundColor = '#0a0a1a';
+                document.addEventListener('click', tryPlay, { once: true });
+                document.addEventListener('touchstart', tryPlay, { once: true });
             });
         }
-        
-        const allButtons = document.querySelectorAll('.btn-download, .tg-link, .install-help');
-        allButtons.forEach(btn => {
-            btn.addEventListener('touchstart', function() { this.style.opacity = '0.8'; });
-            btn.addEventListener('touchend', function() { this.style.opacity = '1'; });
-        });
     })();
 </script>
 </body>
